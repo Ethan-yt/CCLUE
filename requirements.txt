@@ -1,0 +1,6 @@
+faiss==1.5.3
+numpy==1.19.2
+torch==1.7.1
+datasets==1.6.0
+transformers==4.5.1
+dataclasses==0.8
