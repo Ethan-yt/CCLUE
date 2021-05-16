@@ -49,9 +49,9 @@ sh run_punctuation.sh seg [Model Name]
 
 | Model                   | Precision | Recall | F1     |
 |-------------------------|-----------|--------|--------|
-| chinese-roberta-wwm-ext | 86.25     | 86.25  | 86.25  |
-| guwenbert-base-fs       | 92.54     | 92.54  | 92.54  |
-| guwenbert-base          | 92.61     | 92.61  | 92.61  |
+| chinese-roberta-wwm-ext | 86.25     | 84.26  | 85.24  |
+| guwenbert-base-fs       | 92.54     | 93.49  | 93.01  |
+| guwenbert-base          | 92.61     | 92.64  | 92.62  |
 
 #### 标点 PUNC
 
@@ -61,9 +61,9 @@ sh run_punctuation.sh punc [Model Name]
     
 | Model                   | Precision | Recall | F1     |
 |-------------------------|-----------|--------|--------|
-| chinese-roberta-wwm-ext | 72.37     | 72.37  | 72.37  |
-| guwenbert-base-fs       | 80.06     | 80.06  | 80.06  |
-| guwenbert-base          | 79.83     | 79.83  | 79.83  |
+| chinese-roberta-wwm-ext | 72.37     | 69.88  | 71.10  |
+| guwenbert-base-fs       | 80.06     | 81.57  | 80.81  |
+| guwenbert-base          | 79.83     | 80.19  | 80.01  |
 
 #### 引号标注 QUOTE
 
@@ -72,9 +72,9 @@ sh run_punctuation.sh quote [Model Name]
 ```
 | Model                   | Precision | Recall | F1     |
 |-------------------------|-----------|--------|--------|
-| chinese-roberta-wwm-ext | 43.55     | 43.55  | 43.55  |
-| guwenbert-base-fs       | 63.56     | 63.56  | 63.56  |
-| guwenbert-base          | 64.10     | 64.10  | 64.10  |
+| chinese-roberta-wwm-ext | 43.55     | 54.73  | 48.50  |
+| guwenbert-base-fs       | 63.56     | 75.61  | 69.06  |
+| guwenbert-base          | 64.10     | 72.86  | 68.20  |
 
 ### 命名实体识别 NER
 
