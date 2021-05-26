@@ -81,13 +81,8 @@ class CRFBertForTokenClassification(BertPreTrainedModel):
 
         loss = None
         if labels is not None:
-            crf_mask = labels != nn.CrossEntropyLoss().ignore_index
-            crf_mask = crf_mask[:, 1:]
-            crf_labels = labels[:, 1:]
-            crf_labels = torch.relu(crf_labels)
-
-            crf_logits = logits[:, 1:, :]
-            loss = -self.crf(crf_logits, crf_labels, crf_mask, reduction='mean')
+            crf_labels = torch.relu(labels)
+            loss = -self.crf(logits, crf_labels, attention_mask.bool(), reduction='mean')
 
         if not return_dict:
             output = (logits,) + outputs[2:]
@@ -100,5 +95,5 @@ class CRFBertForTokenClassification(BertPreTrainedModel):
             attentions=outputs.attentions,
         )
 
-    def decode(self, emissions):
-        return self.crf.decode(torch.tensor(emissions).cuda())
+    def decode(self, emissions, mask):
+        return self.crf.decode(emissions, mask)

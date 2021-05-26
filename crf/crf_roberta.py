@@ -92,5 +92,5 @@ class CRFRobertaForTokenClassification(RobertaPreTrainedModel):
             attentions=outputs.attentions,
         )
 
-    def decode(self, emissions):
-        return self.crf.decode(torch.tensor(emissions).cuda())
+    def decode(self, emissions, mask):
+        return self.crf.decode(emissions, mask)

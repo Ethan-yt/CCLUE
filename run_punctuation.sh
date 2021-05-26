@@ -1,7 +1,7 @@
 export TASK_NAME=$1
 export MODEL_NAME=$2
 
-if [[ TASK_NAME == 'quote' ]]; then
+if [[ $TASK_NAME == 'quote' ]]; then
   ARGS=$(
     echo '--crf'
     echo '--crf_lr 5e-3'

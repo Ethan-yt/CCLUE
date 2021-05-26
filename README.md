@@ -4,11 +4,11 @@
 
 ## 排行榜
 
-| Model                   | Score   | SPQ     | NER     | CLS     | SENT    | RETR    |
+| Model                   | Score   | S&P     | NER     | CLS     | SENT    | RETR    |
 |-------------------------|---------|---------|---------|---------|---------|---------|
-| chinese-roberta-wwm-ext |  71.14  |  73.21  |  80.77  |  81.91  |  58.65  |  61.15  |
+| chinese-roberta-wwm-ext |  70.88  |  71.92  |  80.77  |  81.91  |  58.65  |  61.15  |
 | guwenbert-base-fs       |  77.21  |  **80.96**  |  88.66  |  **84.99**  |  59.75  |  71.69  |
-| guwenbert-base          |  **77.55**  |  80.28  |  **90.24**  |  84.56  |  **60.40**  |  **72.28** |
+| guwenbert-base          |  **77.55**  |  80.25  |  **90.24**  |  84.56  |  **60.40**  |  **72.28** |
 
 ## Baselines
 
@@ -33,13 +33,13 @@ https://1drv.ms/u/s!AuBc6K5UDq9Um1AgkbHqwCVCnB7O?e=XbGssd
 ## Tasks
 
 
-### 断句与标点 SPQ
+### 断句与标点 S&P
 
 | Model                   | SEG   | PUNC  | QUOTE | AVG   |
 |-------------------------|-------|-------|-------|-------|
-| chinese-roberta-wwm-ext | 85.24 | 71.1  | 48.5  | 68.28 |
+| chinese-roberta-wwm-ext | 85.24 | 71.10 | 59.43 | 71.92 |
 | guwenbert-base-fs       | 93.01 | 80.81 | 69.06 | **80.96** |
-| guwenbert-base          | 92.62 | 80.01 | 68.2  | 80.28 |
+| guwenbert-base          | 92.62 | 80.01 | 68.12 | 80.25 |
 
 #### 断句 SEG
 
@@ -70,11 +70,11 @@ sh run_punctuation.sh punc [Model Name]
 ```shell
 sh run_punctuation.sh quote [Model Name]
 ```
-| Model                   | Precision | Recall | F1     |
-|-------------------------|-----------|--------|--------|
-| chinese-roberta-wwm-ext | 43.55     | 54.73  | 48.50  |
-| guwenbert-base-fs       | 63.56     | 75.61  | 69.06  |
-| guwenbert-base          | 64.10     | 72.86  | 68.20  |
+| Model                   | Precision | Recall | F1    |
+|-------------------------|-----------|--------|-------|
+| chinese-roberta-wwm-ext | 59.75     | 59.12  | 59.43 |
+| guwenbert-base-fs       | 63.56     | 75.61  | 69.06 |
+| guwenbert-base          | 63.79     | 73.08  | 68.12 |
 
 ### 命名实体识别 NER
 

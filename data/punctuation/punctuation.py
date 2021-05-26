@@ -22,8 +22,8 @@ logger = datasets.logging.get_logger(__name__)
 
 _URL = ""
 _TRAINING_FILE = "train.txt"
-_DEV_FILE = "all.dev.txt"
-_TEST_FILE = "all.test.txt"
+_DEV_FILE = "dev.txt"
+_TEST_FILE = "test.txt"
 
 
 class PunctuationConfig(datasets.BuilderConfig):
