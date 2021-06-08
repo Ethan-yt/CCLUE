@@ -1,4 +1,13 @@
-# CCLUE
+<p align="center">
+    <br>
+    <img src="./assets/cclue.png" width="500"/>
+    <br>
+</p>
+<p align="center">
+<a href="https://github.com/ethan-yt/cclue/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/ethan-yt/cclue"></a>
+<a href="https://github.com/ethan-yt/cclue/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ethan-yt/cclue"></a>
+<a href="https://github.com/Ethan-yt/cclue/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/ethan-yt/cclue"></a>
+</p>
 
 古文自然语言理解测评基准。包括代表性任务对应的数据集、基准（预训练）模型、评测代码。
 
