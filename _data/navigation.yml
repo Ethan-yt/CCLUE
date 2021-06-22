@@ -1,50 +1,71 @@
 header:
+  # - titles:
+  #     # @start locale config
+  #     en      : &EN       Archive
+  #     en-GB   : *EN
+  #     en-US   : *EN
+  #     en-CA   : *EN
+  #     en-AU   : *EN
+  #     zh-Hans : &ZH_HANS  归档
+  #     zh      : *ZH_HANS
+  #     zh-CN   : *ZH_HANS
+  #     zh-SG   : *ZH_HANS
+  #     zh-Hant : &ZH_HANT  歸檔
+  #     zh-TW   : *ZH_HANT
+  #     zh-HK   : *ZH_HANT
+  #     ko      : &KO       아카이브
+  #     ko-KR   : *KO
+  #     fr      : &FR       Archives
+  #     fr-BE   : *FR
+  #     fr-CA   : *FR
+  #     fr-CH   : *FR
+  #     fr-FR   : *FR
+  #     fr-LU   : *FR
+  #     # @end locale config
+  #   url: /archive.html
   - titles:
       # @start locale config
-      en      : &EN       Archive
-      en-GB   : *EN
-      en-US   : *EN
-      en-CA   : *EN
-      en-AU   : *EN
-      zh-Hans : &ZH_HANS  归档
-      zh      : *ZH_HANS
-      zh-CN   : *ZH_HANS
-      zh-SG   : *ZH_HANS
-      zh-Hant : &ZH_HANT  歸檔
-      zh-TW   : *ZH_HANT
-      zh-HK   : *ZH_HANT
-      ko      : &KO       아카이브
-      ko-KR   : *KO
-      fr      : &FR       Archives
-      fr-BE   : *FR
-      fr-CA   : *FR
-      fr-CH   : *FR
-      fr-FR   : *FR
-      fr-LU   : *FR
+      en      : &EN       Get Started
+      zh-Hans : &ZH_HANS  快速上手
       # @end locale config
-    url: /archive.html
+    url: /get-started.html
 
   - titles:
       # @start locale config
-      en      : &EN       About
-      en-GB   : *EN
-      en-US   : *EN
-      en-CA   : *EN
-      en-AU   : *EN
-      zh-Hans : &ZH_HANS  关于
-      zh      : *ZH_HANS
-      zh-CN   : *ZH_HANS
-      zh-SG   : *ZH_HANS
-      zh-Hant : &ZH_HANT  關於
-      zh-TW   : *ZH_HANT
-      zh-HK   : *ZH_HANT
-      ko      : &KO       소개
-      ko-KR   : *KO
-      fr      : &FR       À propos
-      fr-BE   : *FR
-      fr-CA   : *FR
-      fr-CH   : *FR
-      fr-FR   : *FR
-      fr-LU   : *FR
+      en      : &EN       Leaderboard
+      zh-Hans : &ZH_HANS  排行榜
       # @end locale config
-    url: /about.html
+    url: /leaderboard.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       Github
+      zh-Hans : &ZH_HANS  项目地址
+      # @end locale config
+    url: https://github.com/Ethan-yt/CCLUE
+    open_in_new_window: true
+  
+  # - titles:
+  #     # @start locale config
+  #     en      : &EN       About
+  #     en-GB   : *EN
+  #     en-US   : *EN
+  #     en-CA   : *EN
+  #     en-AU   : *EN
+  #     zh-Hans : &ZH_HANS  关于
+  #     zh      : *ZH_HANS
+  #     zh-CN   : *ZH_HANS
+  #     zh-SG   : *ZH_HANS
+  #     zh-Hant : &ZH_HANT  關於
+  #     zh-TW   : *ZH_HANT
+  #     zh-HK   : *ZH_HANT
+  #     ko      : &KO       소개
+  #     ko-KR   : *KO
+  #     fr      : &FR       À propos
+  #     fr-BE   : *FR
+  #     fr-CA   : *FR
+  #     fr-CH   : *FR
+  #     fr-FR   : *FR
+  #     fr-LU   : *FR
+  #     # @end locale config
+  #   url: /about.html

@@ -1,0 +1,16 @@
+.index-container {
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    margin: 50px 0;
+  }
+
+  .desc {
+    margin-bottom: 50px;
+  }
+
+  .button + .button {
+    margin-left: 10px;
+  }
+}
