@@ -9,133 +9,69 @@
 <a href="https://github.com/Ethan-yt/cclue/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/ethan-yt/cclue"></a>
 </p>
 
-古文自然语言理解测评基准。包括代表性任务对应的数据集、基准（预训练）模型、评测代码。
+CCLUE是一个古文自然语言理解的测评基准，包括代表性任务对应的数据集、基准模型、评测代码，研究人员能够通过几行代码快速测评各种预训练语言模型。
 
-## 排行榜
+## 新闻
 
-| Model                   | Score   | S&P     | NER     | CLS     | SENT    | RETR    |
-|-------------------------|---------|---------|---------|---------|---------|---------|
-| chinese-roberta-wwm-ext |  70.88  |  71.92  |  80.77  |  81.91  |  58.65  |  61.15  |
-| guwenbert-base-fs       |  77.21  |  **80.96**  |  88.66  |  **84.99**  |  59.75  |  71.69  |
-| guwenbert-base          |  **77.55**  |  80.25  |  **90.24**  |  84.56  |  **60.40**  |  **72.28** |
+2021/06/22 官方网站上线：https://cclue.top
 
-## Baselines
+## 任务介绍
 
-### Chinese-BERT-wwm
+该基准包含以下几个任务和数据集：
 
-基于全词遮罩（Whole Word Masking）技术的中文预训练模型
+| 任务名    | 缩写   | 训练集    | 开发集   | 测试集   | 任务类型 | 指标    |
+|--------|------|--------|-------|-------|------|-------|
+| 断句和标点  | S&P   | 26935  | 4075  | 3992  | 序列标注 | F1 |
+| 命名实体识别 | NER  | 2566   | 281   | 327   | 序列标注 | F1 |
+| 古文分类   | CLS  | 160000 | 20000 | 20000 | 文本分类 | Acc   |
+| 古诗情感分类 | SENT | 16000  | 2000  | 2000  | 文本分类 | Acc   |
+| 文白检索   | RETR | -      | -     | 10000 | 文本检索 | Acc   |
 
-https://github.com/ymcui/Chinese-BERT-wwm
+## 快速测评
 
-### guwenbert
+快速测评基于您提交的模型，使用默认的超参数设置微调，得到最终成绩。使用这种方式不需要下载代码本地测评。
 
-基于古文语料和继续训练技术的预训练语言模型
+1. 将你的模型上传至Huggingface。[查看文档](https://huggingface.co/transformers/model_sharing.html)
+1. 申请测评。[链接](https://github.com/Ethan-yt/CCLUE/issues/new?assignees=Ethan-yt&labels=&template=quick_test.md&title=%5B快速测评%5D)
+1. 测评结果将会在3个工作日内回复
 
-https://github.com/Ethan-yt/guwenbert
+## 本地测评方法
 
-### guwenbert-fs
+1. 下载数据集和测评代码: `git clone https://github.com/Ethan-yt/CCLUE.git`
+1. 安装所需依赖(Python 3): `pip install -r requirements.txt`
+1. 准备评测模型。支持[Hugging Face Models](https://huggingface.co/models)中列出的模型和本地相同格式的模型
+1. 评测所有任务
+1. 收集测评结果。测评结果位于`outputs`文件夹。模型的最终得分为几个任务的平均值。
 
-从头训练的古文预训练语言模型
-
-https://1drv.ms/u/s!AuBc6K5UDq9Um1AgkbHqwCVCnB7O?e=XbGssd
-
-## Tasks
-
-
-### 断句与标点 S&P
-
-| Model                   | SEG   | PUNC  | QUOTE | AVG   |
-|-------------------------|-------|-------|-------|-------|
-| chinese-roberta-wwm-ext | 85.24 | 71.10 | 59.43 | 71.92 |
-| guwenbert-base-fs       | 93.01 | 80.81 | 69.06 | **80.96** |
-| guwenbert-base          | 92.62 | 80.01 | 68.12 | 80.25 |
-
-#### 断句 SEG
-
-```shell
+评测代码如下：
+```bash
+# 断句和标点任务
 sh run_punctuation.sh seg [Model Name]
-```
-
-| Model                   | Precision | Recall | F1     |
-|-------------------------|-----------|--------|--------|
-| chinese-roberta-wwm-ext | 86.25     | 84.26  | 85.24  |
-| guwenbert-base-fs       | 92.54     | 93.49  | 93.01  |
-| guwenbert-base          | 92.61     | 92.64  | 92.62  |
-
-#### 标点 PUNC
-
-```shell
 sh run_punctuation.sh punc [Model Name]
-```
-    
-| Model                   | Precision | Recall | F1     |
-|-------------------------|-----------|--------|--------|
-| chinese-roberta-wwm-ext | 72.37     | 69.88  | 71.10  |
-| guwenbert-base-fs       | 80.06     | 81.57  | 80.81  |
-| guwenbert-base          | 79.83     | 80.19  | 80.01  |
-
-#### 引号标注 QUOTE
-
-```shell
 sh run_punctuation.sh quote [Model Name]
-```
-| Model                   | Precision | Recall | F1    |
-|-------------------------|-----------|--------|-------|
-| chinese-roberta-wwm-ext | 59.75     | 59.12  | 59.43 |
-| guwenbert-base-fs       | 63.56     | 75.61  | 69.06 |
-| guwenbert-base          | 63.79     | 73.08  | 68.12 |
 
-### 命名实体识别 NER
+# 命名实体识别任务
+sh run_ner.sh [Model Name] crf
 
-```shell
-sh run_ner.sh [Model Name] <crf>
-```
-
-| Model                       | F1    |
-|-----------------------------|-------|
-| chinese-roberta-wwm-ext     | 77.79 |
-| chinese-roberta-wwm-ext-crf | 80.77 |
-| guwenbert-base-fs           | 87.78 |
-| guwenbert-base-fs-crf       | 88.66 |
-| guwenbert-base              | 88.02 |
-| guwenbert-base-crf          | 90.24 |
-
-### 古文分类 CLS
-
-```shell
+# 古文分类任务
 sh run_classification.sh [Model Name]
-```
 
-| Model                   | Acc     |
-|-------------------------|---------|
-| chinese-roberta-wwm-ext |  81.91  |
-| guwenbert-base-fs       |  84.99  |
-| guwenbert-base          |  84.56  |
-
-### 古诗情感分类 SENT
-
-```shell
+# 古诗情感分类任务
 sh run_fspc.sh [Model Name]
 sh run_fspc_poem.sh [Model Name]
+
+# 文白检索任务
+sh run_retrieval.sh [Model Name]
 ```
 
-| 模型                      | 诗句     | 诗文     | 平均     |
-|-------------------------|--------|--------|--------|
-| chinese-roberta-wwm-ext | 59.90  | 57.40  | 58.65  |
-| guwenbert-base-fs       | 61.70  | 57.80  | 59.75  |
-| guwenbert-base          | 61.80  | 59.00  | 60.40  |
+## 提交结果
 
-### 文白检索 RETR
+您可以将测评结果提交至CCLUE排行榜。所有结果必须可以复现，经过认证后可以登陆CCLUE排行榜。[提交链接](https://github.com/Ethan-yt/CCLUE/issues/new?assignees=Ethan-yt&labels=&template=approve.md&title=%5B申请认证%5D)
 
-```shell
-sh run_retrieval.sh
-```
+提交时请注明以下信息：
 
-#### 实验结果
-
-| 模型                      | 文言-白话 | 白话-文言 | 平均     |
-|-------------------------|-------|-------|--------|
-| chinese-roberta-wwm-ext | 57.92 | 64.37 | 61.15  |
-| guwenbert-base-fs       | 78.11 | 65.27 | 71.69  |
-| guwenbert-base          | 80.39 | 64.16 | 72.28  |
-
+- 提交单位（个人 / 团队名称）
+- 模型名称
+- 项目/论文地址（能够描述模型的结构，超参数设置，训练过程，创新点等）
+- 模型权重链接（上传至Hugging Face，或国内外其他网盘）
+- 评测结果（在outputs文件夹内，包括每个任务的超参数设置，随机数种子等以便复现，不要包括模型权重）
