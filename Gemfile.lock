@@ -3,7 +3,6 @@ PATH
   specs:
     jekyll-text-theme (2.2.6)
       jekyll (>= 3.6, < 5.0)
-      jekyll-feed (~> 0.1)
       jekyll-paginate (~> 1.1)
       jekyll-sitemap (~> 1.0)
       jemoji (~> 0.8)

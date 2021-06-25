@@ -1,0 +1,50 @@
+---
+layout: page
+show_title: false
+---
+
+{% raw %}
+<div class="guwen-models-container" id="app">
+  <div class="title">GuwenModels</div>
+  <div class="title2">古文应用模型在线演示 <a href="https://github.com/Ethan-yt/guwen-models" target="_blank">项目地址</a></div>
+  <div class="card">
+    <div class="flex">
+      <div class="text-box-wrap">
+        <textarea
+          class="text-box"
+          v-model="inputText"
+          maxlength="512"
+        ></textarea>
+        <span class="word-count">{{inputText.length}}/512</span>
+      </div>
+      <div class="text-box-wrap">
+        <div class="text-box" v-html="outputHtml"></div>
+      </div>
+    </div>
+    <div class="info">
+      <template v-if="step == -1">
+        <div class="button button--rounded button-start" @click="start">
+          开始处理
+        </div>
+        <div class="button button--rounded" @click="change">
+          换一换
+        </div>
+      </template>
+      <div class="progress-wrap" v-else>
+        <div class="bar" :style="{ width: progress }"></div>
+        <div class="text">{{ barText }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endraw %}
+
+<script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.14.7/babel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-toasted"></script>
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.3/data.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.3/data.t2cn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opencc-js@1.0.3/bundle-browser.min.js"></script>
+<script src="guwen-models.js"></script>
+

@@ -1,0 +1,152 @@
+.guwen-models-container {
+  width: 100%;
+
+  .title {
+    margin-top: 20px;
+    font-size: 36px;
+    text-align: center;
+  }
+  .title2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: unset;
+    padding: 10px;
+
+    .flex {
+      width: 100%;
+      @include flexbox();
+    }
+
+    .text-box-wrap {
+      position: relative;
+      @include flex(1);
+      height: 300px;
+      margin: 10px;
+    }
+
+    .text-box {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+      overflow-y: auto;
+      font-size: 16px;
+      word-break: break-word;
+      resize: none;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      .punc,
+      .quote,
+      .book {
+        font-weight: 500;
+        color: #0343f4;
+      }
+
+      .ne {
+        border: 1px solid #0343f4;
+        border-radius: 3px;
+      }
+    }
+
+    .word-count {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .title {
+      margin: 10px 0;
+      font-size: 24px;
+    }
+
+    .card {
+      .flex {
+        @include flex-direction(column);
+      }
+
+      .text-box-wrap {
+        height: 200px;
+      }
+    }
+  }
+
+  .info {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    .progress-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #03a9f4;
+      border-radius: 5px;
+
+      .bar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #03a9f4;
+        background-image:
+          linear-gradient(
+            135deg,
+            hsla(0, 0%, 100%, .25) 25%,
+            transparent 0,
+            transparent 50%,
+            hsla(0, 0%, 100%, .25) 0,
+            hsla(0, 0%, 100%, .25) 75%,
+            transparent 0,
+            transparent
+          );
+        background-repeat: repeat;
+        background-size: 40px 40px;
+        transition: width ease 1s;
+        @include animation(1s linear infinite moving);
+      }
+
+      .text {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        line-height: 30px;
+        color: #fff;
+        text-align: center;
+      }
+    }
+
+    .button {
+      min-width: 90px;
+      text-align: center;
+      border-radius: 5px;
+    } 
+
+    .button-start {
+      color: #fff;
+      background-color: #03a9f4;
+    }
+
+    .button + .button {
+      margin-left: 10px;
+    }
+  }
+}
+
+@include keyframes(moving) {
+  0% {
+    background-position-x: 0;
+  }
+
+  to {
+    background-position-x: 40px;
+  }
+}

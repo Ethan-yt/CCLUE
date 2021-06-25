@@ -69,3 +69,11 @@ header:
   #     fr-LU   : *FR
   #     # @end locale config
   #   url: /about.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       Guwen Models
+      zh-Hans : &ZH_HANS  模型应用
+      # @end locale config
+    url: /guwen-models.html
+  
